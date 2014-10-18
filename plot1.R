@@ -1,5 +1,9 @@
 library(data.table)
 
+## Read in data 
+hhpower <- read.table(file="household_power_consumption.txt",header=TRUE,sep=";")
+hhpower <- data.table(hhpower)
+
 # Converting the Date data into Date format
 hhpower[,cDate:=as.Date(strptime(hhpower$Date,format="%d/%m/%Y"))]
 hhpower <- data.table(hhpower)
